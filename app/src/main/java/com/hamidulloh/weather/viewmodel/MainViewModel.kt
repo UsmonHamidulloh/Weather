@@ -1,0 +1,30 @@
+package com.hamidulloh.weather.viewmodel
+
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import com.hamidulloh.weather.api.RetrofitInstance
+import com.hamidulloh.weather.model.WeatherApi
+import com.hamidulloh.weather.repository.MainRepo
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+
+class MainViewModel(private val retrofitInstance: RetrofitInstance) : ViewModel() {
+    private val repo = MainRepo(retrofitInstance)
+
+    private val job = Job()
+    private val viewModelScope = CoroutineScope(Dispatchers.IO + job)
+
+    val getData: MutableLiveData<WeatherApi> = repo.rWeatherReceiver
+
+    init {
+        fetchData()
+    }
+
+    private fun fetchData() {
+        viewModelScope.launch {
+            repo.fetchData()
+        }
+    }
+}
