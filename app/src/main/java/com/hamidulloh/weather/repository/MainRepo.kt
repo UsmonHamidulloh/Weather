@@ -8,11 +8,15 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainRepo(private val retrofitInstance: RetrofitInstance) {
+class MainRepo(
+    private val retrofitInstance: RetrofitInstance,
+    private val country: String
+) {
+
     val rWeatherReceiver = MutableLiveData<WeatherApi>()
 
-    suspend fun fetchData() {
-        retrofitInstance.api.getWeatherData().enqueue(object : Callback<WeatherApi> {
+    fun fetchData() {
+        retrofitInstance.api.getWeatherData(country).enqueue(object : Callback<WeatherApi> {
             override fun onResponse(call: Call<WeatherApi>, response: Response<WeatherApi>) {
                 if (response.isSuccessful) {
                     val body = response.body()

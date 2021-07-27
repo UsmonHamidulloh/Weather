@@ -10,8 +10,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-class MainViewModel(private val retrofitInstance: RetrofitInstance) : ViewModel() {
-    private val repo = MainRepo(retrofitInstance)
+class MainViewModel(
+    private val retrofitInstance: RetrofitInstance,
+    private val country: String
+) : ViewModel() {
+    private val repo = MainRepo(retrofitInstance, country)
 
     private val job = Job()
     private val viewModelScope = CoroutineScope(Dispatchers.IO + job)
