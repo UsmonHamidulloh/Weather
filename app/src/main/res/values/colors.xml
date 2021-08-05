@@ -9,5 +9,7 @@
     <!--    UI's colors    -->
     <color name="translucent">#616161</color>
     <color name="black">#FF000000</color>
+    <color name="black_02">#303030</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="white_02">#fafafa</color>
 </resources>
