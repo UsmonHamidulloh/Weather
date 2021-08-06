@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/back_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="42dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UnusedAttribute,UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back_icon"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:fontFamily="@font/ubuntu_condensed"
+            android:text="@string/settings"
+            android:textColor="@color/translucent"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/theme_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/ubuntu_condensed"
+        android:text="@string/theme"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/back_ll" />
+
+
+    <LinearLayout
+        android:id="@+id/dark_mode_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="@id/theme_txt"
+        app:layout_constraintTop_toBottomOf="@id/theme_txt"
+        tools:ignore="UnusedAttribute">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu_condensed"
+            android:text="@string/dark_theme_txt"
+            android:textColor="@color/translucent"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/ubuntu_condensed"
+            android:text="@string/dark_theme_desc_txt"
+            android:textColor="@color/translucent"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/dark_theme_check_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/dark_mode_ll"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/dark_mode_ll"
+        tools:ignore="ContentDescription" />
+
+    <LinearLayout
+        android:id="@+id/light_mode_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="@id/dark_mode_ll"
+        app:layout_constraintTop_toBottomOf="@id/dark_mode_ll"
+        tools:ignore="UnusedAttribute">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu_condensed"
+            android:text="@string/light_theme_txt"
+            android:textColor="@color/translucent"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/ubuntu_condensed"
+            android:text="@string/light_theme_desc_txt"
+            android:textColor="@color/translucent"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/light_theme_check_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:src="@drawable/ic_check"
+        app:layout_constraintBottom_toBottomOf="@id/light_mode_ll"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/light_mode_ll"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/feedback_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/ubuntu_condensed"
+        android:text="@string/feedback_txt"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@id/light_mode_ll"
+        app:layout_constraintTop_toBottomOf="@id/light_mode_ll" />
+
+    <LinearLayout
+        android:id="@+id/report_issue_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="@id/feedback_txt"
+        app:layout_constraintTop_toBottomOf="@id/feedback_txt"
+        tools:ignore="UnusedAttribute">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu_condensed"
+            android:text="@string/report_an_issue_txt"
+            android:textColor="@color/translucent"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/ubuntu_condensed"
+            android:text="@string/report_an_issue_desc_txt"
+            android:textColor="@color/translucent"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rate_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="@id/report_issue_ll"
+        app:layout_constraintTop_toBottomOf="@id/report_issue_ll"
+        tools:ignore="UnusedAttribute">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu_condensed"
+            android:text="@string/rate_on_play_store_txt"
+            android:textColor="@color/translucent"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/ubuntu_condensed"
+            android:text="@string/rate_on_play_store_desc_txt"
+            android:textColor="@color/translucent"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/about_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/ubuntu_condensed"
+        android:text="@string/about_txt"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@id/rate_ll"
+        app:layout_constraintTop_toBottomOf="@id/rate_ll" />
+
+    <LinearLayout
+        android:id="@+id/about_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="@id/about_txt"
+        app:layout_constraintTop_toBottomOf="@id/about_txt"
+        tools:ignore="UnusedAttribute">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu_condensed"
+            android:text="@string/about_weather_txt"
+            android:textColor="@color/translucent"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/ubuntu_condensed"
+            android:text="@string/about_weather_desc_txt"
+            android:textColor="@color/translucent"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/the_team_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="@id/about_ll"
+        app:layout_constraintTop_toBottomOf="@id/about_ll"
+        tools:ignore="UnusedAttribute">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu_condensed"
+            android:text="@string/the_team_txt"
+            android:textColor="@color/translucent"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/ubuntu_condensed"
+            android:text="@string/the_team_desc_txt"
+            android:textColor="@color/translucent"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

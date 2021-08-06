@@ -1,12 +1,12 @@
 package com.hamidulloh.weather.repository
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.hamidulloh.weather.api.RetrofitInstance
 import com.hamidulloh.weather.model.WeatherApi
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import timber.log.Timber
 
 class MainRepo(
     private val retrofitInstance: RetrofitInstance,
@@ -27,7 +27,7 @@ class MainRepo(
             }
 
             override fun onFailure(call: Call<WeatherApi>, t: Throwable) {
-                Log.d("TAG", "onFailure: ${t.localizedMessage}")
+                Timber.d(t.localizedMessage)
             }
 
         })
