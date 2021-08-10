@@ -16,4 +16,5 @@
     <string name="about_weather_desc_txt">Read a bit more about the app</string>
     <string name="the_team_txt">The Team</string>
     <string name="the_team_desc_txt">Get to know the team that made Weather a reality</string>
+    <string name="select_city_txt">Select City</string>
 </resources>
