@@ -3,7 +3,7 @@ package com.hamidulloh.weather.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.hamidulloh.weather.api.RetrofitInstance
-import com.hamidulloh.weather.model.WeatherApi
+import com.hamidulloh.weather.model.api.WeatherApi
 import com.hamidulloh.weather.repository.MainRepo
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

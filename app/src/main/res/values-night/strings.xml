@@ -17,4 +17,16 @@
     <string name="the_team_txt">The Team</string>
     <string name="the_team_desc_txt">Get to know the team that made Weather a reality</string>
     <string name="select_city_txt">Select City</string>
+    <string name="enum_andijan">Andijan Region</string>
+    <string name="enum_bukhara">Bukhara Region</string>
+    <string name="enum_jizzakh">Jizzakh Region</string>
+    <string name="enum_urgench">Khorezm Region</string>
+    <string name="enum_namangan">Namangan Region</string>
+    <string name="enum_navoiy">Navoiy Region</string>
+    <string name="enum_qashqadaryo">Qashqadaryo Region</string>
+    <string name="enum_samarqand">Samarqand Region</string>
+    <string name="enum_sirdaryo">Sirdaryo Region</string>
+    <string name="enum_surkhandarya">Surkhandarya Region</string>
+    <string name="enum_tashkent">Tashkent</string>
+    <string name="enum_karakalpakstan">Karakalpakstan</string>
 </resources>

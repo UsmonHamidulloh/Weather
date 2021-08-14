@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.hamidulloh.weather.ui.MainFragment"
+        android:name="com.hamidulloh.weather.ui.fragments.MainFragment"
         android:label="MainFragment">
         <action
             android:id="@+id/action_mainFragment_to_locationFragment"
@@ -17,10 +17,10 @@
     </fragment>
     <fragment
         android:id="@+id/locationFragment"
-        android:name="com.hamidulloh.weather.ui.LocationFragment"
+        android:name="com.hamidulloh.weather.ui.fragments.LocationFragment"
         android:label="LocationFragment" />
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.hamidulloh.weather.ui.SettingsFragment"
+        android:name="com.hamidulloh.weather.ui.fragments.SettingsFragment"
         android:label="SettingsFragment" />
 </navigation>

@@ -1,6 +1,6 @@
 package com.hamidulloh.weather.api
 
-import com.hamidulloh.weather.model.WeatherApi
+import com.hamidulloh.weather.model.api.WeatherApi
 import com.hamidulloh.weather.utils.Constants.Companion.API_KEY
 import retrofit2.Call
 import retrofit2.http.GET

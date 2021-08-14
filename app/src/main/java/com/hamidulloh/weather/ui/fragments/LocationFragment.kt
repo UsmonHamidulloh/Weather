@@ -1,4 +1,4 @@
-package com.hamidulloh.weather.ui
+package com.hamidulloh.weather.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater

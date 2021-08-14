@@ -1,4 +1,4 @@
-package com.hamidulloh.weather.model
+package com.hamidulloh.weather.model.api
 
 import com.squareup.moshi.Json
 

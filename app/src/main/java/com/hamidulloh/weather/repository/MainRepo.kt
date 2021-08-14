@@ -2,7 +2,7 @@ package com.hamidulloh.weather.repository
 
 import androidx.lifecycle.MutableLiveData
 import com.hamidulloh.weather.api.RetrofitInstance
-import com.hamidulloh.weather.model.WeatherApi
+import com.hamidulloh.weather.model.api.WeatherApi
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

@@ -1,4 +1,4 @@
-package com.hamidulloh.weather.ui
+package com.hamidulloh.weather.ui.fragments
 
 import android.os.Build
 import android.os.Bundle
@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.hamidulloh.weather.api.RetrofitInstance
 import com.hamidulloh.weather.databinding.FragmentMainBinding
