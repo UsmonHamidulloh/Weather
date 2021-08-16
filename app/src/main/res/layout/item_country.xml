@@ -5,7 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="30dp"
-    android:layout_marginBottom="20dp">
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    android:layout_marginBottom="20dp"
+    tools:ignore="UnusedAttribute">
 
     <LinearLayout
         android:id="@+id/location_info_ll"
