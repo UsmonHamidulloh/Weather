@@ -8,14 +8,11 @@ import retrofit2.Callback
 import retrofit2.Response
 import timber.log.Timber
 
-class MainRepo(
-    private val retrofitInstance: RetrofitInstance,
-    private val country: String
-) {
+class MainRepo(private val retrofitInstance: RetrofitInstance) {
 
     val rWeatherReceiver = MutableLiveData<WeatherApi>()
 
-    fun fetchData() {
+    fun fetchData(country: String) {
         retrofitInstance.api.getWeatherData(country).enqueue(object : Callback<WeatherApi> {
             override fun onResponse(call: Call<WeatherApi>, response: Response<WeatherApi>) {
                 if (response.isSuccessful) {
