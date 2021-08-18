@@ -37,11 +37,10 @@ class MainFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         retrofitInstance = RetrofitInstance
-        vMFactory = MainViewModelFactory(
-            retrofitInstance = retrofitInstance,
-            country = "Tashkent"
-        )
+        vMFactory = MainViewModelFactory(retrofitInstance)
         viewModel = ViewModelProvider(this, vMFactory).get(MainViewModel::class.java)
+
+        viewModel.fetchData("Tashkent")
 
         binding.dateTxt.text = calculateDate()
         viewModel.getData.observe(this, { weather ->
@@ -65,6 +64,7 @@ class MainFragment : Fragment() {
             val navDirection = MainFragmentDirections.actionMainFragmentToLocationFragment()
             findNavController().navigate(navDirection)
         }
+
         binding.settingsImg.setOnClickListener {
             val navDirection = MainFragmentDirections.actionMainFragmentToSettingsFragment()
             findNavController().navigate(navDirection)

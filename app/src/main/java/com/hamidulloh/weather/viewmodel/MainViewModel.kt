@@ -10,24 +10,17 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-class MainViewModel(
-    private val retrofitInstance: RetrofitInstance,
-    private val country: String
-) : ViewModel() {
-    private val repo = MainRepo(retrofitInstance, country)
+class MainViewModel(private val retrofitInstance: RetrofitInstance) : ViewModel() {
+    private val repo = MainRepo(retrofitInstance)
 
     private val job = Job()
     private val viewModelScope = CoroutineScope(Dispatchers.IO + job)
 
     val getData: MutableLiveData<WeatherApi> = repo.rWeatherReceiver
 
-    init {
-        fetchData()
-    }
-
-    private fun fetchData() {
+    fun fetchData(country: String) {
         viewModelScope.launch {
-            repo.fetchData()
+            repo.fetchData(country)
         }
     }
 }

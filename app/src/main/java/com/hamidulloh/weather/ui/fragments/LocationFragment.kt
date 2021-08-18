@@ -44,12 +44,14 @@ class LocationFragment : Fragment() {
         val countries = ArrayList<Country>()
         rInstance = RetrofitInstance
 
+        vMFactory = MainViewModelFactory(rInstance)
+        viewModel = ViewModelProvider(this, vMFactory).get(MainViewModel::class.java)
+
         Regions.values().forEach { region ->
-            vMFactory = MainViewModelFactory(rInstance, region.cName)
-            viewModel = ViewModelProvider(this, vMFactory).get(MainViewModel::class.java)
+            viewModel.fetchData(region.cName)
 
             viewModel.getData.observe(this, {
-                Timber.d(it.toString())
+                Timber.tag("TAG").d(it.name)
                 countries.add(
                     Country(
                         name = getString(region.stringResLoc),
@@ -60,9 +62,10 @@ class LocationFragment : Fragment() {
                 )
 
             })
-            cAdapter = CountryAdapter()
-            cAdapter.submitList(countries)
         }
+
+        cAdapter = CountryAdapter()
+        cAdapter.submitList(countries)
 
         binding.recyclerView.apply {
             adapter = cAdapter
