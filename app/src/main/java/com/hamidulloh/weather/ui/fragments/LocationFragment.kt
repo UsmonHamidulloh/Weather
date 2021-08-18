@@ -5,18 +5,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.hamidulloh.weather.api.RetrofitInstance
 import com.hamidulloh.weather.databinding.FragmentLocationBinding
 import com.hamidulloh.weather.model.Country
 import com.hamidulloh.weather.model.Regions
 import com.hamidulloh.weather.ui.adapter.CountryAdapter
+import com.hamidulloh.weather.viewmodel.MainViewModel
+import com.hamidulloh.weather.viewmodelfactory.MainViewModelFactory
+import timber.log.Timber
 
 class LocationFragment : Fragment() {
     private var _binding: FragmentLocationBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var cAdapter: CountryAdapter
+    private lateinit var viewModel: MainViewModel
+    private lateinit var vMFactory: MainViewModelFactory
+    private lateinit var rInstance: RetrofitInstance
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -33,21 +41,28 @@ class LocationFragment : Fragment() {
             findNavController().popBackStack()
         }
 
-        val regions = ArrayList<Country>()
+        val countries = ArrayList<Country>()
+        rInstance = RetrofitInstance
 
-        Regions.values().sortedArray().forEach {
-            regions.add(
-                Country(
-                    name = getString(it.stringResLoc),
-                    temp = 22,
-                    desc = "clear sky",
-                    weather = "1"
+        Regions.values().forEach { region ->
+            vMFactory = MainViewModelFactory(rInstance, region.cName)
+            viewModel = ViewModelProvider(this, vMFactory).get(MainViewModel::class.java)
+
+            viewModel.getData.observe(this, {
+                Timber.d(it.toString())
+                countries.add(
+                    Country(
+                        name = getString(region.stringResLoc),
+                        temp = it.main.temp.toInt(),
+                        desc = it.weather[0].main,
+                        weather = it.weather[0].icon
+                    )
                 )
-            )
-        }
 
-        cAdapter = CountryAdapter()
-        cAdapter.submitList(regions)
+            })
+            cAdapter = CountryAdapter()
+            cAdapter.submitList(countries)
+        }
 
         binding.recyclerView.apply {
             adapter = cAdapter
