@@ -1,5 +1,6 @@
 package com.hamidulloh.weather.ui.fragments
 
+import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,11 +12,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.hamidulloh.weather.api.RetrofitInstance
 import com.hamidulloh.weather.databinding.FragmentMainBinding
+import com.hamidulloh.weather.utils.Constants.Companion.STRING_KEY
 import com.hamidulloh.weather.utils.calculateDate
 import com.hamidulloh.weather.utils.setWeatherIcon
 import com.hamidulloh.weather.utils.timestampToTime
 import com.hamidulloh.weather.viewmodel.MainViewModel
 import com.hamidulloh.weather.viewmodelfactory.MainViewModelFactory
+import timber.log.Timber
 
 class MainFragment : Fragment() {
     private var _binding: FragmentMainBinding? = null
@@ -40,7 +43,13 @@ class MainFragment : Fragment() {
         vMFactory = MainViewModelFactory(retrofitInstance)
         viewModel = ViewModelProvider(this, vMFactory).get(MainViewModel::class.java)
 
-        viewModel.fetchData("Tashkent")
+        val sharedPref = requireActivity().getPreferences(Context.MODE_PRIVATE)
+
+        val shReceiver = sharedPref?.getString(STRING_KEY, "Tashkent")
+        Timber.d("shReceiver = $shReceiver")
+        Timber.d("shReceiver.getString(key = countryName, defValue = Tashkent)")
+
+        viewModel.fetchData(shReceiver!!)
 
         binding.dateTxt.text = calculateDate()
         viewModel.getData.observe(this, { weather ->

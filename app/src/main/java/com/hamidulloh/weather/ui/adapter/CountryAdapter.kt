@@ -11,7 +11,8 @@ import com.hamidulloh.weather.model.Country
 import com.hamidulloh.weather.utils.setWeatherIcon
 import timber.log.Timber
 
-class CountryAdapter : ListAdapter<Country, CountryAdapter.ViewHolder>(CountryDiffCallback()) {
+class CountryAdapter(val itemClickListener: CountryItemCallBack) :
+    ListAdapter<Country, CountryAdapter.ViewHolder>(CountryDiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemCountryBinding.inflate(
             LayoutInflater.from(parent.context),
@@ -30,6 +31,10 @@ class CountryAdapter : ListAdapter<Country, CountryAdapter.ViewHolder>(CountryDi
         holder.binding.description.text = country.desc
         Timber.tag("TAG").d(country.weather)
         holder.binding.weather.setWeatherIcon(country.weather)
+
+        holder.binding.root.setOnClickListener {
+            itemClickListener.onItemClick(country)
+        }
     }
 
     class CountryDiffCallback : DiffUtil.ItemCallback<Country>() {
@@ -38,6 +43,10 @@ class CountryAdapter : ListAdapter<Country, CountryAdapter.ViewHolder>(CountryDi
 
         override fun areContentsTheSame(oldItem: Country, newItem: Country): Boolean =
             oldItem == newItem
+    }
+
+    class CountryItemCallBack(val itemClickListener: (item: Country) -> Unit) {
+        fun onItemClick(item: Country) = itemClickListener(item)
     }
 
     class ViewHolder(val binding: ItemCountryBinding) :
